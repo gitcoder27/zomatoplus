@@ -8,6 +8,17 @@ public class Restaurant implements Serializable {
 	private int rating;
 	private String location;
 	
+	public Restaurant() {
+		
+	}
+	
+	public Restaurant(String resName, long resNumber, int rating, String location) {
+		this.resName = resName;
+		this.resNumber = resNumber;
+		this.rating = rating;
+		this.location = location;
+	}
+	
 	public String getResName() {
 		return resName;
 	}

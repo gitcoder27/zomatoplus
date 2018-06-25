@@ -1,5 +1,8 @@
 package com.thinkxfactor.zomatoplus.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,8 +30,14 @@ public class RestaurantController {
 	}
 	
 	@GetMapping("/getall")
-	public Restaurant getAllRes() {
-		return tempRes;
+	public List<Restaurant> getAllRes() {
+		
+		List allRes = new ArrayList<>();
+		Restaurant res1 = new Restaurant("BarBQ", 1234567890, 4, "kolkata");
+		allRes.add(tempRes);
+		allRes.add(res1);
+		
+		return allRes;
 	}
 	
 	@PostMapping("/additem")
