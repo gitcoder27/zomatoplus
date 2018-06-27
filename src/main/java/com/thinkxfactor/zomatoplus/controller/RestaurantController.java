@@ -70,7 +70,11 @@ public class RestaurantController {
 	
 	@PostMapping("/addItem")
 	public Item addItem(@RequestBody Item item) {
-		Item food = itemRepository.save(item);
+		Item food = null;
+		Restaurant res = restaurantRepository.findById(item.getRestaurantId()); 
+		if(res != null)
+			food = itemRepository.save(item);
 		return food;
+			
 	}
 }
