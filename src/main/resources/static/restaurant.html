@@ -1,0 +1,82 @@
+<div class="well">
+	<a><h3 onClick="myFunction2()">Create Restaurant</h3></a>
+	<div class="myItem" style="display:none">
+	
+		<table cellpadding="100">
+			<tr>
+				<td>Name</td>
+				<td><input type="text" ng-model="restaurant.name"></td>
+			</tr>
+
+			<tr>
+				<td>Description</td>
+				<td><input type="text" ng-model="restaurant.description"></td>
+			</tr>
+
+			<tr>
+				<td>Contact</td>
+				<td><input type="text" ng-model="restaurant.contact"></td>
+			</tr>
+
+			<tr>
+				<td>Website</td>
+				<td><input type="text" ng-model="restaurant.website"></td>
+			</tr>
+			
+			<tr>
+				<td>Rating</td>
+				<td><input type="text" ng-model="restaurant.rating"></td>
+			</tr>
+			
+			<tr>
+				<td>City</td>
+				<td><input type="text" ng-model="restaurant.city"></td>
+			</tr>
+
+			<tr>
+				<td>Address</td>
+				<td><input type="text" ng-model="restaurant.address"></td>
+			</tr>
+			</table>
+			<br>
+			
+				<button ng-click="saveRestaurant()" onClick="clearField()">Save Restauant</button>
+		
+		</div>
+</div>
+
+
+	
+<div class="well">	
+	<a><h3 onClick="myFunction()" ng-click="fetchRestaurant()">List of all Restaurants</h3></a>
+	
+	<br>
+	<div class="myDIV" style="display:none">
+	<table class="table table-strip table-hover"  >
+		
+		<tr style="background-color: #8FBC8F">
+			<td><b>ID</b></td>
+			<td><b>Name</b></td>
+			<td><b>Description</b></td>
+			<td><b>Contact</b></td>
+			<td><b>Website</b></td>
+			<td><b>Rating</b></td>
+			<td><b>City</b></td>
+			<td><b>Address</b></td>
+		</tr>
+		<tr ng-repeat="restaurant in restaurants">
+			<td>{{restaurant.id}}</td>
+			<td>{{restaurant.name}}</td>
+			<td>{{restaurant.description}}</td>
+			<td>{{restaurant.contact}}</td>
+			<td>{{restaurant.website}}</td>
+			<td>{{restaurant.rating}}</td>
+			<td>{{restaurant.city}}</td>
+			<td>{{restaurant.address}}</td>
+		</tr>
+	</table>
+	</div>
+
+</div>
+
+

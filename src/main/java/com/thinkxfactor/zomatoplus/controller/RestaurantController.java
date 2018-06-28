@@ -77,4 +77,10 @@ public class RestaurantController {
 		return food;
 			
 	}
+	
+	@GetMapping("/getAllItems")
+	public List<Item> getAllItems() {
+		List<Item> allItem = itemRepository.findAll();
+		return allItem;
+	}
 }

@@ -36,8 +36,8 @@ public class Restaurant implements Serializable {
 	@Column(name="website")
 	private String website;
 	
-	@Column(name="like_count")
-	private Integer likeCount;
+	@Column(name="rating")
+	private Integer rating;
 	
 	public Restaurant() {
 		
@@ -129,14 +129,14 @@ public class Restaurant implements Serializable {
 
 
 
-	public Integer getLikeCount() {
-		return likeCount;
+	public Integer getRating() {
+		return rating;
 	}
 
 
 
-	public void setLikeCount(Integer likeCount) {
-		this.likeCount = likeCount;
+	public void setRating(Integer rating) {
+		this.rating = rating;
 	}
 
 

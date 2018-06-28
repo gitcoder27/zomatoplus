@@ -1,0 +1,50 @@
+<div class="well">
+	<a><h3 onClick="myFunction()">Add Items</h3></a>
+	<form class="myDIV" style="display:none">
+	<table>
+		<tr>
+			<td>Restaurant Id :</td>
+			<td><input type="text" ng-model="items.restaurantId"></td>
+		</tr>
+		<tr>
+			<td>Name :</td>
+			<td><input type="text" ng-model="items.name"></td>
+		</tr>
+		<tr>
+			<td>Price :</td>
+			<td><input type="text" ng-model="items.price"></td>
+		</tr>
+		<tr>
+			<td>Description :</td>
+			<td><input type="text" ng-model="items.description"></td>
+		</tr>
+	</table>
+	<br>
+	<button ng-click="addItem()">Add Item</button>
+	</form>
+</div>
+
+<div class="well">
+	<a><h3 onClick="myFunction2()" ng-click="getAllItems()">All Item Details</h3></a>
+	
+
+	
+	<br>
+
+	<div class="myItem" style="display:none">
+	<table class="table table-strip table-hover">
+		<tr style="background-color: #8FBC8F">
+			<th>Restaurant ID</th>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Description</th>
+		</tr>
+		<tr ng-repeat="item in items">
+			<td>{{item.restaurantId}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.price}}</td>
+			<td>{{item.description}}</td>
+		</tr>
+	</table>
+	</div>
+</div>

@@ -1,0 +1,122 @@
+
+<div class="well">
+	<a><h3 onclick="myFunction2()">Add User</h3></a>
+	<form class="myItem" style="display: none">
+		<table>
+			<tr>
+				<td>Name :</td>
+				<td><input type="text" ng-model="user.name"></td>
+			</tr>
+			<tr>
+				<td>Password :</td>
+				<td><input type="text" ng-model="user.password"></td>
+			</tr>
+			<tr>
+				<td>Mobile :</td>
+				<td><input type="text" ng-model="user.mobile"></td>
+			</tr>
+			<tr>
+				<td>Address :</td>
+				<td><input type="text" ng-model="user.address"></td>
+			</tr>
+			<tr>
+				<td>Landmark :</td>
+				<td><input type="text" ng-model="user.landmark"></td>
+			</tr>
+			<tr>
+				<td>Pincode :</td>
+				<td><input type="text" ng-model="user.pincode"></td>
+			</tr>
+			<tr>
+				<td>Type :</td>
+				<td><input type="text" ng-model="user.type"></td>
+			</tr>
+		</table>
+		<br>
+		<button ng-click="addUser()">Add User</button>
+	</form>
+</div>
+
+
+
+<div class="well">
+<table>
+<tr>
+<td>
+	<a><h3 onclick="myFunction3()">User Login</h3>
+	<script>
+		var x = document.getElementsByClassName("textField");
+		x[0].innerHTML="";
+		x[1].innerHTML="";
+	</script>
+	</a>
+	
+	<form class="myLogin" style="display: none">
+		<table>
+			<tr>
+				<td>Name :</td>
+				<td><input type="text" ng-model="user.name" class="textField"></td>
+			</tr>
+			<tr>
+				<td>Password :</td>
+				<td><input type="text" ng-model="user.password" class="textField"></td>
+			</tr>
+		</table>
+		<br>
+		<button ng-click="loginUser()" >Login</button>
+	</form>
+	</td>
+<td style="padding-left:30px">
+	<table class="table table-strip table-hover" id="myTable" style="display:none">
+		<tr style="background-color: #8FBC8F">
+			<th>Name</th>
+			<th>Password</th>
+			<th>Mobile</th>
+			<th>Address</th>
+			<th>Landmark</th>
+			<th>Pincode</th>
+			<th>Type</th>
+		</tr>
+		<tr>
+			<td>{{user.name}}</td>
+			<td>{{user.password}}</td>
+			<td>{{user.mobile}}</td>
+			<td>{{user.address}}</td>
+			<td>{{user.landmark}}</td>
+			<td>{{user.pincode}}</td>
+			<td>{{user.type}}</td>
+		</tr>
+	</table>
+</td>
+</tr>
+	</table>
+</div>
+
+
+<div class="well">
+	<a><h3 onclick="myFunction()" ng-click="getAll()">All Users Details</h3></a>
+	
+	<br>
+	<div class="myDIV" style="display:none">
+	<table class="table table-strip table-hover">
+		<tr style="background-color: #8FBC8F">
+			<th>Name</th>
+			<th>Password</th>
+			<th>Mobile</th>
+			<th>Address</th>
+			<th>Landmark</th>
+			<th>Pincode</th>
+			<th>Type</th>
+		</tr>
+		<tr ng-repeat="user in users">
+			<td>{{user.name}}</td>
+			<td>{{user.password}}</td>
+			<td>{{user.mobile}}</td>
+			<td>{{user.address}}</td>
+			<td>{{user.landmark}}</td>
+			<td>{{user.pincode}}</td>
+			<td>{{user.type}}</td>
+		</tr>
+	</table>
+	</div>
+</div>
