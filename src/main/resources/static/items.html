@@ -1,10 +1,17 @@
 <div class="well">
-	<a><h3 onClick="myFunction()">Add Items</h3></a>
+	<a><h3 onClick="myFunction()" ng-click="allRestaurant()">Add Items</h3></a>
 	<form class="myDIV" style="display:none">
 	<table>
 		<tr>
-			<td>Restaurant Id :</td>
-			<td><input type="text" ng-model="items.restaurantId"></td>
+			<td>Restaurant Name :</td>
+			
+			
+			<td>
+				<select ng-model="items.restaurantName">
+				<option  ng-repeat="resName in restaurantName">{{resName.name}}</option>
+				</select>
+			</td>
+			
 		</tr>
 		<tr>
 			<td>Name :</td>
@@ -25,22 +32,26 @@
 </div>
 
 <div class="well">
-	<a><h3 onClick="myFunction2()" ng-click="getAllItems()">All Item Details</h3></a>
-	
+	<a><h3 onClick="myFunction2(); resetDropDown();" ng-click="allRestaurant()">All Item Details</h3></a>
+	<br>
+	<div class="myItem" style="display:none">
+	<select id="dropDown" ng-model="itemsGet.restaurantName" name="Select Restaurant">
+			<option disabled hidden>Select Restaurant</option>
 
+			<option ng-repeat="resName in restaurantName">{{resName.name}}</option>
+	</select>
 	
 	<br>
+	<button ng-click="getItem()" onclick="resetDropDown()">Search</button>
 
-	<div class="myItem" style="display:none">
+	
 	<table class="table table-strip table-hover">
 		<tr style="background-color: #8FBC8F">
-			<th>Restaurant ID</th>
 			<th>Name</th>
 			<th>Price</th>
 			<th>Description</th>
 		</tr>
-		<tr ng-repeat="item in items">
-			<td>{{item.restaurantId}}</td>
+		<tr ng-repeat="item in itemsAll">
 			<td>{{item.name}}</td>
 			<td>{{item.price}}</td>
 			<td>{{item.description}}</td>

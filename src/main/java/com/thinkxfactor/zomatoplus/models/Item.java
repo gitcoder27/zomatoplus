@@ -18,8 +18,8 @@ public class Item implements Serializable {
 	@Column(name="item_id")
 	private long id;
 	
-	@Column(name="restaurant_id")
-	private long restaurantId;
+	@Column(name="restaurant_name")
+	private String restaurantName;
 	
 	@Column(name="name")
 	private String name;
@@ -38,12 +38,12 @@ public class Item implements Serializable {
 		this.id = id;
 	}
 
-	public long getRestaurantId() {
-		return restaurantId;
+	public String getRestaurantName() {
+		return restaurantName;
 	}
 
-	public void setRestaurantId(long restaurantId) {
-		this.restaurantId = restaurantId;
+	public void setRestaurantName(String restaurantName) {
+		this.restaurantName = restaurantName;
 	}
 
 	public String getName() {
@@ -69,6 +69,8 @@ public class Item implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	
 	
 	
 	

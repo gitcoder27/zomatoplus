@@ -125,14 +125,26 @@ app.controller("itemsCtrl", function($scope, $http) {
 		});
 	};
 	
-	$scope.getAllItems = function() {
+	$scope.getItem = function() {
 		$http({
-			method : 'GET',
-			url : 'http://localhost:8080/restaurant/getAllItems'
+			method : 'POST',
+			url : 'http://localhost:8080/restaurant/getItemsByRestaurant',
+			data:$scope.itemsGet
 		}).success(function(data, status) {
-			$scope.items = data;
+			$scope.itemsAll = data;
 		}).error(function(data, status) {
 			$scope.data = "Request failed";
+		});
+	};
+	
+	$scope.allRestaurant = function() {
+		$http({
+			method : 'GET',
+			url : 'http://localhost:8080/restaurant/getAll'
+		}).success(function(data, status) {
+			$scope.restaurantName = data;
+		}).error(function(data, status) {
+			alert("Database error");
 		});
 	};
 });

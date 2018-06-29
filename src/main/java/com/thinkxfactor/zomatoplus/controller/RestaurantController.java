@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.thinkxfactor.zomatoplus.models.Item;
@@ -71,16 +72,17 @@ public class RestaurantController {
 	@PostMapping("/addItem")
 	public Item addItem(@RequestBody Item item) {
 		Item food = null;
-		Restaurant res = restaurantRepository.findById(item.getRestaurantId()); 
+		Restaurant res = restaurantRepository.findByName(item.getRestaurantName()); 
 		if(res != null)
 			food = itemRepository.save(item);
 		return food;
 			
 	}
 	
-	@GetMapping("/getAllItems")
-	public List<Item> getAllItems() {
-		List<Item> allItem = itemRepository.findAll();
+	@PostMapping("/getItemsByRestaurant")
+	public List<Item> getAllItems(@RequestBody Item item) {
+		List<Item> allItem = itemRepository.findByRestaurantName(item.getRestaurantName());
 		return allItem;
 	}
+	
 }
