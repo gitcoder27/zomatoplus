@@ -51,7 +51,6 @@ function resetDropDown() {
 }
 
 function hideTable() {
-	alert("test");
 	var table = document.getElementById("myTable");
 	if(table.style.display == "block")
 		table.style.display = "none";
@@ -62,3 +61,8 @@ function allFunctions() {
 	clearField2();
 	hideTable();
 }
+
+function displayTable() {
+	document.getElementById("itemsTable").style.visibility = "visible";
+}
+

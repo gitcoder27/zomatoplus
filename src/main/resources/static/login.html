@@ -1,0 +1,60 @@
+
+<div class="well" ng-init="clearField2()">
+<table>
+<tr>
+<td>
+	<form class="w3-card-4">
+
+    <h1 style="padding-left:10px; padding-top:10px;">Login</h1>
+   
+    <hr>
+
+    <label style="padding-left:10px"><b>Name</b></label>
+    <input type="text" placeholder="Enter User Name" ng-model="user.name" id="nameField2" required>
+
+    <label style="padding-left:10px"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" ng-model="user.password" id="passwordField2" required>
+    
+   
+    
+    
+
+    <div class="clearfix" align="center">
+     
+      <button type="submit" id="loginButton" ng-click="loginUser()" onclick="clearField()">Login</button>
+    </div>
+
+</form>
+	
+</td>
+
+
+<td style="padding-left:100px">
+<div id="myTable" class="w3-container" style="display:none">
+	<table   class="w3-table-all w3-card-4" >	
+		<tr style="background-color: #af4448" >
+			<th class="tableRow"><font color="white">Name</font></th>
+			<th class="tableRow"><font color="white">Mobile</font></th>
+			<th class="tableRow"><font color="white">Address</font></th>
+			<th class="tableRow"><font color="white">Landmark</font></th>
+			<th class="tableRow"><font color="white">Pincode</font></th>
+			<th class="tableRow"><font color="white">Type</font></th>
+		</tr>
+		<tr>
+			<td >{{user.name}}</td>
+			<td>{{user.mobile}}</td>
+			<td>{{user.address}}</td>
+			<td>{{user.landmark}}</td>
+			<td>{{user.pincode}}</td>
+			<td>{{user.type}}</td>
+		</tr>
+	</table>
+	<div style="padding-top:20px">
+	<button class="w3-card-4" onclick="location.reload()">Logout</button>
+	</div>
+	</div>
+</td>
+</tr>
+	</table>
+	
+</div>

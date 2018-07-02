@@ -1,99 +1,11 @@
 
 <div class="well">
-	<a><h3 onclick="myFunction2(); clearField();">Add User</h3></a>
-	<form class="myItem" style="display: none">
-		<table>
-			<tr>
-				<td>Name :</td>
-				<td><input id="nameField" type="text" ng-model="user.name"></td>
-			</tr>
-			<tr>
-				<td>Password :</td>
-				<td><input id="passwordField" type="text" ng-model="user.password"></td>
-			</tr>
-			<tr>
-				<td>Mobile :</td>
-				<td><input id="mobileField" type="text" ng-model="user.mobile"></td>
-			</tr>
-			<tr>
-				<td>Address :</td>
-				<td><input id="addressField" type="text" ng-model="user.address"></td>
-			</tr>
-			<tr>
-				<td>Landmark :</td>
-				<td><input id="landmarkField" type="text" ng-model="user.landmark"></td>
-			</tr>
-			<tr>
-				<td>Pincode :</td>
-				<td><input id="pincodeField" type="text" ng-model="user.pincode"></td>
-			</tr>
-			<tr>
-				<td>Type :</td>
-				<td><input id="typeField" type="text" ng-model="user.type"></td>
-			</tr>
-		</table>
-		<br>
-		<button ng-click="addUser()" onclick="clearField()">Add User</button>
-	</form>
-</div>
-
-
-
-<div class="well">
-<table>
-<tr>
-<td>
-	<a><h3 onclick="hideTable(); myFunction3(); clearField2()">User Login</h3></a>
-	
-	<form class="myLogin" style="display: none">
-		<table>
-			<tr>
-				<td>Name :</td>
-				<td><input type="text" ng-model="user.name" id="nameField2"></td>
-			</tr>
-			<tr>
-				<td>Password :</td>
-				<td><input type="text" ng-model="user.password" id="passwordField2"></td>
-			</tr>
-		</table>
-		<br>
-		<button ng-click="loginUser()" >Login</button>
-	</form>
-	</td>
-<td style="padding-left:100px">
-	<table class="table table-strip table-hover" id="myTable" style="display:none">
-		<tr style="background-color: #8FBC8F">
-			<th>Name</th>
-			<th>Password</th>
-			<th>Mobile</th>
-			<th>Address</th>
-			<th>Landmark</th>
-			<th>Pincode</th>
-			<th>Type</th>
-		</tr>
-		<tr>
-			<td>{{user.name}}</td>
-			<td>{{user.password}}</td>
-			<td>{{user.mobile}}</td>
-			<td>{{user.address}}</td>
-			<td>{{user.landmark}}</td>
-			<td>{{user.pincode}}</td>
-			<td>{{user.type}}</td>
-		</tr>
-	</table>
-</td>
-</tr>
-	</table>
-</div>
-
-
-<div class="well">
 	<a><h3 onclick="myFunction()" ng-click="getAll()">All Users Details</h3></a>
 	
 	<br>
 	<div class="myDIV" style="display:none">
-	<table class="table table-strip table-hover">
-		<tr style="background-color: #8FBC8F">
+	<table class="table table-strip table-hover w3-card-4">
+		<tr style="background-color: #8FBC8F" class="w3-card-2">
 			<th>Name</th>
 			<th>Password</th>
 			<th>Mobile</th>

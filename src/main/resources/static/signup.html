@@ -1,0 +1,35 @@
+<form class="w3-card-4" style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <label ><b>Name</b></label>
+    <input type="text" placeholder="Enter Full Name" ng-model="user.name" required>
+
+    <label ><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" ng-model="user.password" required>
+    
+      <label ><b>Mobile</b></label>
+    <input type="text" placeholder="Enter Mobile Number" ng-model="user.mobile" required>
+
+    <label ><b>Address</b></label>
+    <input type="text" placeholder="Enter Address" ng-model="user.address" required>
+
+	  <label ><b>Landmark</b></label>
+    <input type="text" placeholder="Enter Landmark" ng-model="user.landmark" required>
+    
+      <label ><b>Pincode</b></label>
+    <input type="text" placeholder="Enter Pincode" ng-model="user.pincode" required>
+    
+      <label ><b>Type</b></label>
+    <input type="text" placeholder="Enter User Type" ng-model="user.type" required>
+    
+    
+
+    <div class="clearfix" align="center">
+     
+      <button type="submit" class="w3-card-2" ng-click="addUser()" onclick="clearField()">Sign Up</button>
+    </div>
+  </div>
+</form>

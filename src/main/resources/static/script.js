@@ -5,10 +5,6 @@ app.config([ '$routeProvider', function($routeProvider) {
 	$routeProvider.when('/home', {
 		templateUrl : 'home.html'
 	});
-	$routeProvider.when('/restaurants', {
-		templateUrl : 'restaurant.html',
-		controller : 'restaurantCtrl'
-	});
 	$routeProvider.when('/items', {
 		templateUrl : 'items.html',
 		controller : 'itemsCtrl'
@@ -17,83 +13,29 @@ app.config([ '$routeProvider', function($routeProvider) {
 		templateUrl : 'users.html',
 		controller : 'usersCtrl'
 	});
+	$routeProvider.when('/signup', {
+		templateUrl : 'signup.html',
+		controller : 'signupCtrl'
+	});
+	$routeProvider.when('/login', {
+		templateUrl : 'login.html',
+		controller : 'loginCtrl'
+	});
+	$routeProvider.when('/restaurants', {
+		templateUrl : 'restaurant.html',
+		controller : 'restaurantCtrl'
+	});
+	
 	$routeProvider.otherwise({
 		redirectTo : '/home'
 	});
 } ]);
 
-app.controller("restaurantCtrl", function($scope, $http) {
-
-	$scope.fetchRestaurant = function() {
-		$http({
-			method : 'GET',
-			url : 'http://localhost:8080/restaurant/getAll'
-		}).success(function(data, status) {
-			console.log(data);
-			$scope.status = status;
-			$scope.restaurants = data;
-		}).error(function(data, status) {
-			$scope.status = status;
-			$scope.data = "Request failed";
-		});
-	};
-	
-	
-	$scope.saveRestaurant = function() {
-		$http({
-			method : 'POST',
-			url : 'http://localhost:8080/restaurant/add',
-			headers: { 'Content-Type': 'application/json' },
-			data:$scope.restaurant
-		}).success(function(data, status) {
-			console.log(data);
-			
-			alert("Restaurant Added");
-		}).error(function(data, status) {
-			$scope.status = status;
-			$scope.data = "Request failed";
-		});
-	};
-
-});
 
 app.controller("usersCtrl", function($scope, $http) {
-	$scope.addUser = function() {
-		$http({
-			method : 'POST',
-			url : 'http://localhost:8080/user/add',
-			headers : { 'Content-Type' : 'application/json'},
-			data:$scope.user
-		}).success(function(data, status) {
-			console.log(data);
-			alert("User Added");
-		}).error(function(data, status) {
-			$scope.status = status;
-			$scope.data = "Request failed";
-		});
-	};
+
 	
-	$scope.loginUser = function() {
-		$http({
-			method : 'POST',
-			url : 'http://localhost:8080/user/login',
-			headers : { 'Content-type' : 'application/json'},
-			data:$scope.user
-		}).success(function(data, status) {
-			console.log(data);
-			$scope.user=data;
-			if(data){
-				alert("Successful login");
-				var x = document.getElementById("myTable");
-				x.style.display = "block";
-			}
-			else
-				alert("Please Add User");
-		}).error(function(data, status) {
-			$scope.status = status;
-			$scope.data = "Request failed";
-		});
-	};
+	
 	
 	$scope.getAll = function() {
 		$http({
@@ -148,4 +90,80 @@ app.controller("itemsCtrl", function($scope, $http) {
 		});
 	};
 });
+
+app.controller("signupCtrl", function($scope, $http) {
+	$scope.addUser = function() {
+		$http({
+			method : 'POST',
+			url : 'http://localhost:8080/user/add',
+			headers : { 'Content-Type' : 'application/json'},
+			data:$scope.user
+		}).success(function(data, status) {
+			console.log(data);
+			alert("User Added");
+		}).error(function(data, status) {
+			$scope.status = status;
+			$scope.data = "Request failed";
+		});
+	};
+});
+
+app.controller("loginCtrl", function($scope, $http){
+	$scope.loginUser = function() {
+		$http({
+			method : 'POST',
+			url : 'http://localhost:8080/user/login',
+			headers : { 'Content-type' : 'application/json'},
+			data:$scope.user
+		}).success(function(data, status) {
+			console.log(data);
+			$scope.user=data;
+			if(data){
+				alert("Successful login");
+				var x = document.getElementById("myTable");
+				document.getElementById("loginButton").style.display = "none";
+				x.style.display = "block";
+			}
+			else
+				alert("Please Add User");
+		}).error(function(data, status) {
+			$scope.status = status;
+			$scope.data = "Request failed";
+		});
+	};
+});
+
+app.controller("restaurantCtrl", function($scope, $http) {
+	$scope.fetchRestaurant = function() {
+		$http({
+			method : 'GET',
+			url : 'http://localhost:8080/restaurant/getAll'
+		}).success(function(data, status) {
+			console.log(data);
+			$scope.status = status;
+			$scope.restaurants = data;
+		}).error(function(data, status) {
+			$scope.status = status;
+			$scope.data = "Request failed";
+		});
+	};
+	
+	$scope.saveRestaurant = function() {
+		$http({
+			method : 'POST',
+			url : 'http://localhost:8080/restaurant/add',
+			headers: { 'Content-Type': 'application/json' },
+			data:$scope.restaurant
+		}).success(function(data, status) {
+			console.log(data);
+			alert("Restaurant Added");
+			
+			document.getElementById('id01').style.display='none';
+		}).error(function(data, status) {
+			$scope.status = status;
+			$scope.data = "Request failed";
+		});
+	};
+});
+
 

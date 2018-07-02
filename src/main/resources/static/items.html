@@ -27,26 +27,26 @@
 		</tr>
 	</table>
 	<br>
-	<button ng-click="addItem()">Add Item</button>
+	<button class="w3-card-4" ng-click="addItem()">Add Item</button>
 	</form>
 </div>
 
 <div class="well">
-	<a><h3 onClick="myFunction2(); resetDropDown();" ng-click="allRestaurant()">All Item Details</h3></a>
+	<a><h3 onClick="myFunction2(); resetDropDown();" ng-click="allRestaurant()" >All Item Details</h3></a>
 	<br>
 	<div class="myItem" style="display:none">
-	<select id="dropDown" ng-model="itemsGet.restaurantName" name="Select Restaurant">
+	<select id="dropDown" class="w3-card-2" ng-model="itemsGet.restaurantName" name="Select Restaurant" style="margin-bottom:8px">
 			<option disabled hidden>Select Restaurant</option>
 
 			<option ng-repeat="resName in restaurantName">{{resName.name}}</option>
 	</select>
 	
 	<br>
-	<button ng-click="getItem()" onclick="resetDropDown()">Search</button>
-
-	
-	<table class="table table-strip table-hover">
-		<tr style="background-color: #8FBC8F">
+	<button style="width:auto" class="w3-btn w3-black w3-card-4" ng-click="getItem()" onclick="resetDropDown(); displayTable();" style="margin-bottom:8px">Search</button>
+</div>
+<div>	
+	<table class="table table-strip table-hover w3-card-4 w3-table" id="itemsTable" style="visibility:hidden">
+		<tr  style="background-color: #8FBC8F">
 			<th>Name</th>
 			<th>Price</th>
 			<th>Description</th>
@@ -58,4 +58,3 @@
 		</tr>
 	</table>
 	</div>
-</div>
